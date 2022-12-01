@@ -10,11 +10,27 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>13</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>13</version>
+    </dependency>
+  </dependencies>
+  
   <build>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
         <includes>
+          <include>**/*.fxml</include>
+          <include>**/*.css</include>
           <include>**/*.txt</include>
         </includes>
       </resource>
@@ -28,6 +44,25 @@
         <configuration>
           <mainClass>calculator.Driver</mainClass>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.4</version>
+        <configuration>
+          <mainClass>calculator.Driver</mainClass>
+        </configuration>
+        <executions>
+          <execution>
+            <!-- Configuration for debugging -->
+            <id>debug</id>
+            <configuration>
+              <options>
+                <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:8001</option>
+              </options>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
