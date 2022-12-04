@@ -1,22 +1,12 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class MyView {
-  
 
-    @FXML
-    private Parent root2;
-    
     @FXML
     private Button calculateButton;
 
@@ -30,10 +20,10 @@ public class MyView {
     private Label message;
 
     @FXML
-    private Button modeGUI;
+    private MenuItem modeGUI;
 
     @FXML
-    private Button modeText;
+    private MenuItem modeText;
 
     @FXML
     private Button reverseButton;
@@ -43,22 +33,6 @@ public class MyView {
 
     @FXML
     private MenuItem viewPrevious;
-    
-    @FXML
-    public void setModeText(ActionEvent event) throws Exception {
-      Parent root = FXMLLoader.load(getClass().getResource("textView.fxml"));
-      Stage window = (Stage) ((Node) modeText).getScene().getWindow();
-      window.setScene(new Scene(root, 800, 500));
-      window.show();
-    }
-    
-    @FXML
-    public void setModeGUI(ActionEvent event) throws Exception {
-      Parent root = FXMLLoader.load(getClass().getResource("myView.fxml"));
-      Stage window = (Stage) ((Node) modeGUI).getScene().getWindow();
-      window.setScene(new Scene(root, 800, 500));
-      window.show();
-    }
 
     @FXML
     void calcPressed(ActionEvent event) {
@@ -98,7 +72,15 @@ public class MyView {
       message.setText(new StringBuilder(msg).reverse().toString());
     }
 
+    @FXML
+    void setModeGUI(ActionEvent event) {
 
+    }
+
+    @FXML
+    void setModeText(ActionEvent event) {
+
+    }
 
     @FXML
     void viewHistory(ActionEvent event) {
