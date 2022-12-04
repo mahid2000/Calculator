@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -46,14 +45,8 @@ public class MyView {
     private MenuItem viewPrevious;
     
     @FXML
-    private RadioButton r1;
-
-    @FXML
-    private RadioButton r2;
-    
-    @FXML
     public void setModeText(ActionEvent event) throws Exception {
-      Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("textView.fxml"));
+      Parent root = FXMLLoader.load(getClass().getResource("textView.fxml"));
       Stage window = (Stage) ((Node) modeText).getScene().getWindow();
       window.setScene(new Scene(root, 800, 500));
       window.show();
@@ -61,7 +54,7 @@ public class MyView {
     
     @FXML
     public void setModeGUI(ActionEvent event) throws Exception {
-      Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("myView.fxml"));
+      Parent root = FXMLLoader.load(getClass().getResource("myView.fxml"));
       Stage window = (Stage) ((Node) modeGUI).getScene().getWindow();
       window.setScene(new Scene(root, 800, 500));
       window.show();
@@ -96,15 +89,15 @@ public class MyView {
     void previousView(ActionEvent event) {
 
     }
-//
-//    @FXML
-//    void revsersePress(ActionEvent event) {
-//      double r = label.getRotate();
-//      label.setRotate(r - 90);
-//      String msg = inputBox.getText();
-//      message.setText(new StringBuilder(msg).reverse().toString());
-//    }
-//
+
+    @FXML
+    void revsersePress(ActionEvent event) {
+      double r = label.getRotate();
+      label.setRotate(r - 90);
+      String msg = inputBox.getText();
+      message.setText(new StringBuilder(msg).reverse().toString());
+    }
+
 
 
     @FXML
@@ -114,17 +107,6 @@ public class MyView {
 
     @FXML
     void viewLast(ActionEvent event) {
-
-    }
-    
-
-    @FXML
-    void isPressed(ActionEvent event) {
-
-    }
-
-    @FXML
-    void r2IsPressed(ActionEvent event) {
 
     }
 
