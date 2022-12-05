@@ -22,6 +22,15 @@ public class NumStack {
   }
 
   /**
+   * Method to push Numeric Entry objects onto stack.
+   *
+   * @param i Float provided by user
+   */
+  public final void push(final float i) {
+    this.numStack.push(new Entry(i));
+  }
+
+  /**
    * Method to pop Numeric Entry objects off stack. Removes Numeric Entry from Stack
    *
    * @return Numeric Entry at top of stack
