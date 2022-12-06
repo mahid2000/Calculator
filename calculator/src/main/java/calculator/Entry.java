@@ -2,7 +2,7 @@ package calculator;
 
 /**
  * Wrapper class to hide contained Entry Values.
- * 
+ *
  * @author Mahid
  */
 public class Entry {
@@ -15,7 +15,7 @@ public class Entry {
 
   /**
    * Create an entry with a given Value.
-   * 
+   *
    * @param v the value
    */
   public Entry(float v) {
@@ -24,7 +24,7 @@ public class Entry {
 
   /**
    * Create an entry with a given Symbol.
-   * 
+   *
    * @param w A symbol
    */
   public Entry(Symbol w) {
@@ -33,7 +33,7 @@ public class Entry {
 
   /**
    * Create an entry with a given Type.
-   * 
+   *
    * @param t A Type
    */
   public Entry(Type t) {
@@ -42,8 +42,8 @@ public class Entry {
 
   /**
    * Create an entry with a given String.
-   * 
-   * @param w A String
+   *
+   * @param s A String
    */
   public Entry(String s) {
     this.str = s;
@@ -51,7 +51,7 @@ public class Entry {
 
   /**
    * Returns an ENUM value from the Type class for the Type of entry.
-   * 
+   *
    * @return enum type of entry
    */
   public Type getType() {
@@ -61,9 +61,9 @@ public class Entry {
   /**
    * Return the entry as a String Object If the entry isn't a String then throws an
    * IllegalArgumentException.
-   * 
+   *
    * @return String str
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException if entry is not a String
    */
   public String getString() {
     if (!(str instanceof String)) {
@@ -75,9 +75,9 @@ public class Entry {
   /**
    * Returns the the Entry symbol if it is the correct type. Throws IllegalArgumentException if
    * Entry not a Symbol.
-   * 
+   *
    * @return enum Symbol
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException if entry is not a Symbol
    */
   public Symbol getSymbol() {
     if (!(this.other instanceof Symbol)) {
@@ -89,7 +89,7 @@ public class Entry {
   /**
    * Get the Value contents of the entry and return as a float. If Entry contents is not a float
    * then throws IllegalArgumentException.
-   * 
+   *
    * @return the value
    */
   public float getValue() {
@@ -101,7 +101,7 @@ public class Entry {
 
   /**
    * Turns the Symbol and Type enum objects of the Entry into String format.
-   * 
+   *
    * @return String of Symbol or Type from Entry.
    */
   // This method was used to allow the Symbol and Type enums to be printable as per clients

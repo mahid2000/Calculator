@@ -9,7 +9,7 @@
    <children>
       <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="modeGUI" mnemonicParsing="false" onAction="#setModeGUI" text="GUI" />
+            <Button fx:id="modeGui" mnemonicParsing="false" onAction="#setModeGui" text="GUI" />
          </buttons>
       </ButtonBar>
       <TextArea blendMode="DARKEN" layoutX="14.0" layoutY="51.0" prefHeight="317.0" prefWidth="581.0" stylesheets="@myView.css" />
