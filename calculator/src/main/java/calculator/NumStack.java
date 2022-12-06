@@ -33,11 +33,19 @@ public class NumStack {
   /**
    * Method to pop Numeric Entry objects off stack. Removes Numeric Entry from Stack
    *
-   * @return Numeric Entry at top of stack
+   * @return Numeric Entry at top of stack or NaN if Entry is not a float
    * @throws EmptyStackException if stack is empty
    */
   public final float pop() throws EmptyStackException {
-    return this.numStack.pop().getValue();
+    /* try/catch block to catch IllegalArgumentException thrown by getValue() and return
+    a float.NaN to represent error as pop() must return a float not a string*/
+    try {
+      return this.numStack.pop().getValue();
+    } catch (IllegalArgumentException e) {
+      /* if Illegal Argument exception is thrown return Float.NaN which is a float representation of
+      Not a Number */
+      return Float.NaN;
+    }
   }
 
   /**
