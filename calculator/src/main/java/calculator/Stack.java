@@ -5,7 +5,7 @@ import java.util.EmptyStackException;
 
 /**
  * Stack class implementation of a stack of Entry objects.
- * 
+ *
  * @author Mahid Inspired by Dave Cohen
  *
  */
@@ -14,8 +14,8 @@ public class Stack {
   private ArrayList<Entry> entries = new ArrayList<Entry>();
 
   /**
-   * Method to return the size of ArrayList Stack
-   * 
+   * Method to return the size of ArrayList Stack.
+   *
    * @return size of stack.
    */
   public int size() {
@@ -24,7 +24,7 @@ public class Stack {
 
   /**
    * Method to push Entry objects onto stack.
-   * 
+   *
    * @param e Entry provided by user.
    */
   public void push(Entry e) {
@@ -34,7 +34,7 @@ public class Stack {
 
   /**
    * Method to pop Entry objects off stack. Removes Entry from stack.
-   * 
+   *
    * @return Entry at top of stack
    */
   public Entry pop() {
@@ -46,7 +46,7 @@ public class Stack {
 
   /**
    * Method to get Entry at top of stack without removing it.
-   * 
+   *
    * @return Entry at top of stack
    */
   public Entry top() {

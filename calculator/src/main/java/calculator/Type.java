@@ -2,7 +2,7 @@ package calculator;
 
 /**
  * List of Entry Types that could be added to the Stack.
- * 
+ *
  * @author Mahid
  *
  */
