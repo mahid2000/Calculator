@@ -18,13 +18,14 @@ public class RevPolishCalc implements Calculator {
   public RevPolishCalc() {
     this.ram = null;
   }
-
+  
   @Override
   public float evaluate(String calculate) throws InvalidExpressionException {
     // TODO Auto-generated method stub
+    if (calculate == null || calculate.equals("")) {
+      throw new InvalidExpressionException("Expression is Null");
+    }
     return 0;
   }
-  
-
 
 }
