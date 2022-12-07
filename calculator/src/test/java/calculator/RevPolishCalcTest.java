@@ -1,5 +1,7 @@
 package calculator;
 
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +23,13 @@ class RevPolishCalcTest {
         "the calculator should throw a InvalidExpressionException if the expression is empty");
     assertThrows(InvalidExpressionException.class, () -> tester.evaluate(null),
         "the calculator should throw a InvalidExpressionException if the expression is null");
+  }
+
+  // Test 2: Test to see if evaluate() can evaluate the String "0"
+  @Test
+  void testZero() throws InvalidExpressionException {
+    assertEquals(tester.evaluate("0"), 0.00,
+        "the String '0' should not throw a InvalidExpressionException");
   }
 
 }
