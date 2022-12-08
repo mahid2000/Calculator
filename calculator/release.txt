@@ -1,0 +1,7 @@
+This is the first release!!!
+
+GUI is working:
+- You can switch between GUI view and Text view
+- You can enter text in the textbox
+- You can press the calculate button which rotates the title 90 degrees and displays output on the bottom label
+- There are radio buttons but they have no functionality as of yet 
