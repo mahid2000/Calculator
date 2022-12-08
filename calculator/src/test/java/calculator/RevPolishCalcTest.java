@@ -4,6 +4,7 @@ package calculator;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,9 +39,10 @@ class RevPolishCalcTest {
   @Test
   void testRandInt() throws InvalidExpressionException {
     final String temp = String.valueOf(random.nextInt());
-    /* Method to test if an Exception is not thrown 
-       Inspired by Andrii Abramov
-       https://stackoverflow.com/questions/17731234/how-to-test-that-no-exception-is-thrown */
+    /*
+     * Method to test if an Exception is not thrown Inspired by Andrii Abramov
+     * https://stackoverflow.com/questions/17731234/how-to-test-that-no-exception-is-thrown
+     */
     try {
       assertEquals(tester.evaluate(temp), Float.valueOf(temp),
           " the String temp of a randomly generated integer should return itself as a float");
@@ -49,5 +51,17 @@ class RevPolishCalcTest {
     }
 
   }
+
+  // Test 4: Test to see if evaluate() can perform addition
+  @Test
+  void testAdd() throws InvalidExpressionException {
+    float f1 = random.nextFloat();
+    final float f2 = random.nextFloat();
+    final float reasult = f1 + f2;
+    final String revPol = f1 + " " + f2 + " +";
+    assertEquals(tester.evaluate(revPol), reasult,
+        "when + is detected, pop last two entrys on numstack, add them and then push them back on");
+  }
+
 
 }
