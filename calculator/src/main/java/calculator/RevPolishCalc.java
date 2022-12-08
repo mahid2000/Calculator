@@ -43,11 +43,23 @@ public class RevPolishCalc implements Calculator {
           // if it is not a float then check if its a symbol
           String symbol = calculation.next();
           if (symbol.equals(Symbol.PLUS.getSymbol())) {
-            /* if it is a PLUS symbol then pop previous two entry's from numStack, add them and push
-             back the result */
+            /*
+             * if it is a PLUS symbol then pop previous two entry's from numStack, add them and push
+             * back the result
+             */
             float opp2 = ram.pop();
             float opp1 = ram.pop();
             output = opp1 + opp2;
+            ram.push(output);
+          }
+          if (symbol.equals(Symbol.MINUS.getSymbol())) {
+            /*
+             * if it is a MINUS symbol then pop previous two entry's from numStack, switch them and
+             * subtract them and push back the result
+             */
+            float opp2 = ram.pop();
+            float opp1 = ram.pop();
+            output = opp1 - opp2;
             ram.push(output);
           }
 

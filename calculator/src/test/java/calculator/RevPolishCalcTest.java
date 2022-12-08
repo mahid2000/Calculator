@@ -63,5 +63,16 @@ class RevPolishCalcTest {
         "when + is detected, pop last two entrys on numstack, add them and then push them back on");
   }
 
+  // Test 4: Test to see if evaluate() can perform subtraction
+  @Test
+  void testSubtract() throws InvalidExpressionException {
+    float f1 = random.nextFloat();
+    final float f2 = random.nextFloat();
+    final float reasult = f1 - f2;
+    final String revPol = f1 + " " + f2 + " -";
+    assertEquals(tester.evaluate(revPol), reasult,
+        "when - is detected, pop last two entrys on numstack find the difference and push back on");
+  }
+
 
 }
