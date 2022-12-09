@@ -62,19 +62,26 @@ public class RevPolishCalc implements Calculator {
             output = opp1 - opp2;
             ram.push(output);
           }
-
-          return output;
-
-
+          if (symbol.equals(Symbol.TIMES.getSymbol())) {
+            /*
+             * if it is a TIMES symbol then pop previous two entry's from numStack,
+             * multiply them and then push back the result
+             */
+            float opp2 = ram.pop();
+            float opp1 = ram.pop();
+            output = opp1 * opp2;
+            ram.push(output);
+          }
         }
-
       }
+      output = ram.pop();
     } catch (EmptyStackException e) {
       e.printStackTrace();
     }
-
-    // return input String as a Float to pass test 3
-    return Float.valueOf(calculate);
+    // previously returned input String as a Float to pass test 3
+    // return Float.valueOf(calculate);
+    // now return last popped output
+    return output;
   }
 
 }
