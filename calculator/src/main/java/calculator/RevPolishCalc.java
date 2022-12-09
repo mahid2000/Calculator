@@ -23,6 +23,15 @@ public class RevPolishCalc implements Calculator {
     this.ram = null;
   }
 
+  /**
+   * Overridden evaluate() takes in String of a calculation in reverse polish notation and returns a
+   * float.
+   *
+   * @param calculate String calculation expression
+   * @return output evaluated float
+   * @throws InvalidExpressionException when calculation expression is not valid
+   *
+   */
   @Override
   public float evaluate(String calculate) throws InvalidExpressionException {
     // Check if Expression is null
@@ -95,11 +104,11 @@ public class RevPolishCalc implements Calculator {
           }
         }
       }
+      calculation.close();
       output = ram.pop();
       if (oppCount <= 0 && floCount >= 2 || oppCount >= floCount) {
         throw new InvalidExpressionException("Operation Invalid...");
       }
-
     }
     // previously returned input String as a Float to pass test 3
     // return Float.valueOf(calculate);

@@ -109,7 +109,18 @@ class RevPolishCalcTest {
     assertThrows(InvalidExpressionException.class, () -> tester.evaluate("1 2"),
         "an expression without any operators should be invalid");
   }
-
-
-
+  
+  // Test 9: Test to see if evaluate() will work on a simple exponent expressions
+  @Test
+  public final void simpleExp() throws InvalidExpressionException {
+    assertEquals(tester.evaluate("11 9 +"), 20.0f, "11 + 9 should be 20");
+    assertEquals(tester.evaluate(" 1 2 3 + +"), 6.0f, "1 + 2 + 3 should be 6");
+    assertEquals(tester.evaluate(" 9 1 1 + * 6 /"), 3.0f, "9 * ( 1 + 1 ) / 6 should be 3");
+    assertEquals(tester.evaluate(" 27 9 2 - / 5 * 6 + 7 *"), 177.0f,
+        "( 27 / ( 9 - 2 ) * 5 + 6 ) * 7 should be 177");
+    assertEquals(tester.evaluate("20 4 - 6 *"), 96.0f, "( 20 - 4 ) * 6 should be 96");
+    assertEquals(tester.evaluate(" 6 6 6 + + 4 / 2 *"), 9.0f,
+        "( ( 6 + 6 + 6 ) / 4 ) * 2 should be 9");
+  }
+  
 }
