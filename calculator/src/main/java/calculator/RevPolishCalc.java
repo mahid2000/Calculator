@@ -96,7 +96,7 @@ public class RevPolishCalc implements Calculator {
         }
       }
       output = ram.pop();
-      if (oppCount <= 0 && floCount >= 2) {
+      if (oppCount <= 0 && floCount >= 2 || oppCount >= floCount) {
         throw new InvalidExpressionException("Operation Invalid...");
       }
 
