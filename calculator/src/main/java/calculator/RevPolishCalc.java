@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.EmptyStackException;
 import java.util.Scanner;
 
 /**
@@ -72,12 +71,26 @@ public class RevPolishCalc implements Calculator {
             output = opp1 * opp2;
             ram.push(output);
           }
+          if (symbol.equals(Symbol.DIVIDE.getSymbol())) {
+            /*
+             * if it is a DIVIDE symbol then pop previous two entry's from numStack,
+             * divide the first popped value by the second popped value and push back the result
+             * 
+             */
+            float opp2 = ram.pop();
+            if (opp2 == 0) {
+              System.out.print("check throw");
+              throw new InvalidExpressionException(" You Cannot Divide By 0 !!! ");
+            }
+            float opp1 = ram.pop();
+            output = opp1 / opp2;
+            ram.push(output);
+          }
+
         }
       }
       output = ram.pop();
-    } catch (EmptyStackException e) {
-      e.printStackTrace();
-    }
+    } 
     // previously returned input String as a Float to pass test 3
     // return Float.valueOf(calculate);
     // now return last popped output
