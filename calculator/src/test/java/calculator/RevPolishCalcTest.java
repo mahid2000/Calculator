@@ -86,8 +86,10 @@ class RevPolishCalcTest {
         "when * is detected, pop last two entrys on numstack find the product and push back on");
   }
 
-  /* Test 7: Test to see if evaluate can perform division and throws an InvalidExpressionException
-  when divisor is 0 */
+  /*
+   * Test 7: Test to see if evaluate can perform division and throws an InvalidExpressionException
+   * when divisor is 0
+   */
   @Test
   void testDivide() throws InvalidExpressionException {
     float f1 = random.nextFloat();
@@ -99,6 +101,15 @@ class RevPolishCalcTest {
     assertThrows(InvalidExpressionException.class, () -> tester.evaluate("4 0 /"),
         "you should not be able to divide by 0");
   }
+
+  /* Test 8: Test to see if revPolCalc detects a string of numbers without an operator as a invalid
+   calculation */
+  @Test
+  public final void testInvalidExpression() {
+    assertThrows(InvalidExpressionException.class, () -> tester.evaluate("1 2"),
+        "an expression without any operators should be invalid");
+  }
+
 
 
 }

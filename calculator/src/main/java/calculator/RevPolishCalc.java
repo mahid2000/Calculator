@@ -12,6 +12,8 @@ public class RevPolishCalc implements Calculator {
 
 
   private NumStack ram;
+  private int oppCount = 0;
+  private int floCount = 0;
 
   /**
    * Constructor for Calculator's memory Stack.
@@ -38,6 +40,7 @@ public class RevPolishCalc implements Calculator {
         if (calculation.hasNextFloat()) {
           float fl = calculation.nextFloat();
           ram.push(fl);
+          floCount += 1;
         } else {
           // if it is not a float then check if its a symbol
           String symbol = calculation.next();
@@ -50,6 +53,7 @@ public class RevPolishCalc implements Calculator {
             float opp1 = ram.pop();
             output = opp1 + opp2;
             ram.push(output);
+            oppCount += 1;
           }
           if (symbol.equals(Symbol.MINUS.getSymbol())) {
             /*
@@ -60,37 +64,43 @@ public class RevPolishCalc implements Calculator {
             float opp1 = ram.pop();
             output = opp1 - opp2;
             ram.push(output);
+            oppCount += 1;
           }
           if (symbol.equals(Symbol.TIMES.getSymbol())) {
             /*
-             * if it is a TIMES symbol then pop previous two entry's from numStack,
-             * multiply them and then push back the result
+             * if it is a TIMES symbol then pop previous two entry's from numStack, multiply them
+             * and then push back the result
              */
             float opp2 = ram.pop();
             float opp1 = ram.pop();
             output = opp1 * opp2;
             ram.push(output);
+            oppCount += 1;
           }
           if (symbol.equals(Symbol.DIVIDE.getSymbol())) {
             /*
-             * if it is a DIVIDE symbol then pop previous two entry's from numStack,
-             * divide the first popped value by the second popped value and push back the result
+             * if it is a DIVIDE symbol then pop previous two entry's from numStack, divide the
+             * first popped value by the second popped value and push back the result
              * 
              */
             float opp2 = ram.pop();
+            // if divisor is 0 then throw InvalidExpressionException
             if (opp2 == 0) {
-              System.out.print("check throw");
               throw new InvalidExpressionException(" You Cannot Divide By 0 !!! ");
             }
             float opp1 = ram.pop();
             output = opp1 / opp2;
             ram.push(output);
+            oppCount += 1;
           }
-
         }
       }
       output = ram.pop();
-    } 
+      if (oppCount <= 0 && floCount >= 2) {
+        throw new InvalidExpressionException("Operation Invalid...");
+      }
+
+    }
     // previously returned input String as a Float to pass test 3
     // return Float.valueOf(calculate);
     // now return last popped output
