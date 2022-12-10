@@ -6,16 +6,9 @@ GUI is working:
 - You can press the calculate button which rotates the title 90 degrees and displays output on the bottom label
 - There are radio buttons but they have no functionality as of yet 
 
-<<<<<<< HEAD
-CalcModel is partially working:
--NumStack has been implemented to push and pop float Entry's
--Calculator interface has been implemented with a abstract evaluate emthod which accepts a String expression
--RevPolishCalc implements Calculator to perform arithmatic functions such as x / + and - on PostFix String expressions and return a float
--RevPolishCalc can now be called to evaluate String expressions in reverse polish notatation and return a float answer
-=======
 Additions:
 -NumStack has been implemented to push and pop float Entry's
 -Calculator interface has been implemented with a abstract evaluate method which accepts a String expression
 -RevPolishCalc implements Calculator to perform arithmatic functions such as x / + and - on PostFix String expressions and return a float
->>>>>>> RELEASE-2
+
 
