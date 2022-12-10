@@ -2,9 +2,9 @@ package calculator;
 
 
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,16 +40,14 @@ class RevPolishCalcTest {
   @Test
   void testRandInt() throws InvalidExpressionException {
     final String temp = String.valueOf(random.nextInt());
-    /*
-     * Method to test if an Exception is not thrown Inspired by Andrii Abramov
-     * https://stackoverflow.com/questions/17731234/how-to-test-that-no-exception-is-thrown
-     */
-    try {
+
+    // assertDoesNotThrow was pointed out to me by a colleague Isacc during time spent in the lab
+    // (Surname Unknown)
+    assertDoesNotThrow(() -> {
       assertEquals(tester.evaluate(temp), Float.valueOf(temp),
           " the String temp of a randomly generated integer should return itself as a float");
-    } catch (InvalidExpressionException e) {
-      fail(temp + " threw a InvalidExpressionException " + e);
-    }
+    });
+
 
   }
 
@@ -102,14 +100,16 @@ class RevPolishCalcTest {
         "you should not be able to divide by 0");
   }
 
-  /* Test 8: Test to see if revPolCalc detects a string of numbers without an operator as a invalid
-   calculation */
+  /*
+   * Test 8: Test to see if revPolCalc detects a string of numbers without an operator as a invalid
+   * calculation
+   */
   @Test
   public final void testInvalidExpression() {
     assertThrows(InvalidExpressionException.class, () -> tester.evaluate("1 2"),
         "an expression without any operators should be invalid");
   }
-  
+
   // Test 9: Test to see if evaluate() will work on a simple exponent expressions
   @Test
   public final void simpleExp() throws InvalidExpressionException {
@@ -122,5 +122,5 @@ class RevPolishCalcTest {
     assertEquals(tester.evaluate(" 6 6 6 + + 4 / 2 *"), 9.0f,
         "( ( 6 + 6 + 6 ) / 4 ) * 2 should be 9");
   }
-  
+
 }
