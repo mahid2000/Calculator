@@ -41,7 +41,8 @@ class RevPolishCalcTest {
   void testRandInt() throws InvalidExpressionException {
     final String temp = String.valueOf(random.nextInt());
 
-    // assertDoesNotThrow was pointed out to me by a colleague Isacc during time spent in the lab (Surname Unknown)
+    // assertDoesNotThrow was pointed out to me by a colleague Isacc during time spent in the lab
+    // (Surname Unknown)
     assertDoesNotThrow(() -> {
       assertEquals(tester.evaluate(temp), Float.valueOf(temp),
           " the String temp of a randomly generated integer should return itself as a float");
