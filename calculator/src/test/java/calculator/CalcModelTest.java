@@ -20,7 +20,13 @@ class CalcModelTest {
   void testConstructor() {
     assertTrue(tester instanceof CalcModel);
   }
-  
+
+  // Test 2: Test to see if CalcModel can call RevPolishCalc to calculate the expression
+  @Test
+  void testCalcRevPol() {
+    assertEquals(tester.calculate("1 1 +", false), 2.0f,
+        "If boolean inFix is flase the String calcualtion should pass to RevPolishCalc.evaluate()");
+  }
 
 
 
