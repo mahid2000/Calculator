@@ -26,6 +26,14 @@ class OpStackTest {
         "an empty OpStack should throw a EmptyStackException if pop() is called");
   }
 
+  // Test 2: Test to see if push() pushes an Entry into OpStack
+  @Test
+  void testPush() {
+    tested.push(Symbol.PLUS);
+    assertEquals(tested.isEmpty(), false,
+        "if a Symbol.PLUS is pushed onto the OpStack then it should not be empty");
+  }
+
 
 
 
