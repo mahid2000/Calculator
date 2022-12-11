@@ -1,0 +1,32 @@
+package calculator;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.EmptyStackException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class OpStackTest {
+  
+  private OpStack tested;
+
+  // Before each test initialises an empty OpStack
+  @BeforeEach
+  public void setup() {
+    tested = new OpStack();
+  }
+
+  // Test 1: Test to see if pop() and isEmpty() recognise the OpStack as empty
+  @Test
+  void testEmpty() {
+    assertEquals(tested.isEmpty(), true,
+        "an empty OpStack should return True when .isEmpty() method is applied");
+    assertThrows(EmptyStackException.class, () -> tested.pop(),
+        "an empty OpStack should throw a EmptyStackException if pop() is called");
+  }
+
+
+
+
+}
