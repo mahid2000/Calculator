@@ -41,10 +41,26 @@ class OpStackTest {
     assertEquals(tested.pop(), Symbol.PLUS,
         "if a Symbol.PLUS is pushed onto the OpStack then popping should return Symbol.PLUS");
     assertEquals(tested.isEmpty(), true,
-        "if a Symbol.PLUS is pushed and popped off OpStack then isEmpty() should return True");
+        "if a Symbol.PLUS is pupopped off OpStack then isEmpty() should return True");
   }
   
-
+  // Test 4: Test to see if pop() pops the Symbol Entry at the top of OpStack
+  @Test
+  void testPushPop() {
+    tested.push(Symbol.DIVIDE);
+    tested.push(Symbol.INVALID);
+    tested.push(Symbol.LEFT_BRACKET);
+    tested.push(Symbol.MINUS);
+    tested.pop();
+    tested.push(Symbol.PLUS);
+    assertEquals(tested.pop(), Symbol.PLUS,
+        "popping should return the Operater Entry at the top of the OpStack");
+    tested.pop();
+    tested.pop();
+    tested.pop();
+    assertEquals(tested.isEmpty(), true,
+        "Popping all Entrys should empty the OpStack");
+  }
 
 
 }
