@@ -26,6 +26,13 @@ class StrStackTest {
         "an empty StrStack should throw a EmptyStackException if pop() is called");
   }
 
+  // Test 2: Test to see if push() pushes an Entry into StrStack
+  @Test
+  void testPush() {
+    tested.push(Symbol.PLUS.getSymbol());
+    assertEquals(tested.isEmpty(), false,
+        "if a String is pushed onto the StrStack then it should not be empty");
+  }
 
 
 
