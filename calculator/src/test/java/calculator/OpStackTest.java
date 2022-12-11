@@ -34,6 +34,16 @@ class OpStackTest {
         "if a Symbol.PLUS is pushed onto the OpStack then it should not be empty");
   }
 
+  // Test 3: Test to see if pop() pops a Symbol Entry off OpStack
+  @Test
+  void testPop() {
+    tested.push(Symbol.PLUS);
+    assertEquals(tested.pop(), Symbol.PLUS,
+        "if a Symbol.PLUS is pushed onto the OpStack then popping should return Symbol.PLUS");
+    assertEquals(tested.isEmpty(), true,
+        "if a Symbol.PLUS is pushed and popped off OpStack then isEmpty() should return True");
+  }
+  
 
 
 
