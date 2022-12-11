@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StrStackTest {
-  
+
   private StrStack tested;
 
   // Before each test initialises an empty StrStack
@@ -44,8 +44,22 @@ class StrStackTest {
     assertEquals(tested.isEmpty(), true,
         "if a Symbol.PLUS is pupopped off OpStack then isEmpty() should return True");
   }
-  
 
-
+  // Test 4: Test to see if pop() pops the String Entry at the top of StrStack
+  @Test
+  void testPushPop() {
+    tested.push(Symbol.DIVIDE.toString());
+    tested.push(Symbol.INVALID.toString());
+    tested.push(Symbol.LEFT_BRACKET.toString());
+    tested.push(Symbol.MINUS.toString());
+    tested.pop();
+    tested.push(Symbol.PLUS.toString());
+    assertEquals(tested.pop(), "PLUS",
+        "popping should return the String Entry at the top of the StrStack");
+    tested.pop();
+    tested.pop();
+    tested.pop();
+    assertEquals(tested.isEmpty(), true, "Popping all Entrys should empty the StrStack");
+  }
 
 }
