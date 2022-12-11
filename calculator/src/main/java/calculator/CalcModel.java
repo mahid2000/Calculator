@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.LinkedList;
+
 /**
  * CalcModel class to hide implementation of Calculators and store last answer in memory.
  *
@@ -8,8 +10,8 @@ package calculator;
  */
 public class CalcModel {
 
-  private final Calculator revPolCalc;
-  private NumStack memory;
+  final Calculator revPolCalc;
+  final LinkedList<Float> memory;
 
   /**
    * Constructor to initialise calculators and memory stack.
@@ -17,7 +19,7 @@ public class CalcModel {
    */
   public CalcModel() {
     revPolCalc = new RevPolishCalc();
-    memory = new NumStack();
+    memory = new LinkedList<Float>();
   }
 
   /**
@@ -37,7 +39,7 @@ public class CalcModel {
     // Try evaluate the postfix expression by passing the calculation String to RevPolishCalc
     try {
       // Push answer into memory for future use
-      memory.push(revPolCalc.evaluate(calculation));
+      memory.add(revPolCalc.evaluate(calculation));
       // Return the answer
       return revPolCalc.evaluate(calculation);
     } catch (InvalidExpressionException e) {
@@ -47,4 +49,19 @@ public class CalcModel {
     // TO-DO: return helpful error message here
     return Float.NaN;
   }
+  
+  /**
+   * Method to return previous answer from memory.
+   *
+   * @return float previous answer
+   */
+  public final float prevAnswer() {
+    final float ans;
+    if (memory != null) {
+      ans = memory.getLast();
+      return ans;
+    }
+    return 0.0f;
+  }
 }
+
