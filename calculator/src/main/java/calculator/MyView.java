@@ -10,9 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
+
 
 /**
  * Controller class for javaFx application.
@@ -22,9 +23,11 @@ import javafx.stage.Stage;
  */
 public class MyView {
 
+  private CalcModel casio = new CalcModel();
+  private boolean isInfix = true;
 
   @FXML
-  private Parent root2;
+  private Button answer;
 
   @FXML
   private Button calculateButton;
@@ -54,10 +57,7 @@ public class MyView {
   private MenuItem viewPrevious;
 
   @FXML
-  private RadioButton r1;
-
-  @FXML
-  private RadioButton r2;
+  private ToggleButton togglePostFix;
 
 
   /**
@@ -91,16 +91,48 @@ public class MyView {
   }
 
   /**
-   * Event handler that detects when the calculate button is pressed.
+   * Method to switch between infix and postfix when button is toggled.
+   *
+   * @param event  button pressed
+   * @return boolean isInfix 
+   */
+  @FXML
+  public boolean isToggled(ActionEvent event) {
+    if (isInfix) {
+      isInfix = false;
+      togglePostFix.setText("Postfix");
+      return isInfix;
+    }
+    isInfix = true;
+    togglePostFix.setText("InFix");
+    return isInfix;
+  }
+
+  /**
+   * Event handler that detects when the calculate button is pressed and calls the CalcModel.
    *
    * @param event calculateButton is pressed
    */
   @FXML
   void calcPressed(ActionEvent event) {
-    double r = label.getRotate();
-    label.setRotate(r + 90);
+    // Get String value from input box
     String msg = inputBox.getText();
-    message.setText(msg);
+    // call calculator to evaluate input
+    Float ans = casio.calculate(msg, isInfix);
+    // if a not a number float is returned then return error message
+    if (ans.equals(Float.NaN)) {
+      message.setText("Invalid Expression Exception!!!");
+      return;
+    }
+    message.setText(msg + " equals");
+    inputBox.setText(ans.toString());
+  }
+  
+  
+  @FXML
+  void prevAns(ActionEvent event) {
+    Float ans = casio.prevAnswer();
+    inputBox.appendText(ans.toString());
   }
 
 
@@ -115,15 +147,5 @@ public class MyView {
   //
 
 
-
-  @FXML
-  void isPressed(ActionEvent event) {
-
-  }
-
-  @FXML
-  void r2IsPressed(ActionEvent event) {
-
-  }
 
 }
