@@ -39,7 +39,7 @@ public class StrStack {
     /* try/catch block to catch IllegalArgumentException thrown by toString() and return
     a error message */
     try {
-      return this.strStack.pop().toString();
+      return this.strStack.pop().getString();
     } catch (IllegalArgumentException e) {
       /* if Illegal Argument exception is thrown return error message */
       return "This is not a valid String " + e;

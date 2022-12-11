@@ -34,6 +34,18 @@ class StrStackTest {
         "if a String is pushed onto the StrStack then it should not be empty");
   }
 
+  // Test 3: Test to see if pop() pops a String Entry off StrStack
+  @Test
+  void testPop() {
+    final String s = " 1 1 + ";
+    tested.push(s);
+    assertEquals(tested.pop(), " 1 1 + ",
+        "if a String is pushed onto the OpStack then popping should return that Srring");
+    assertEquals(tested.isEmpty(), true,
+        "if a Symbol.PLUS is pupopped off OpStack then isEmpty() should return True");
+  }
+  
+
 
 
 }
