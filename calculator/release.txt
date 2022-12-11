@@ -1,14 +1,25 @@
-This is the 2nd release!!!
+This is the first Beta release and the 3rd release overall!!!
 
-GUI is working:
-- You can switch between GUI view and Text view
-- You can enter text in the textbox
-- You can press the calculate button which rotates the title 90 degrees and displays output on the bottom label
-- There are radio buttons but they have no functionality as of yet 
+Reverse Polish Calculations can now be performed :)
 
-Additions:
--NumStack has been implemented to push and pop float Entry's
--Calculator interface has been implemented with a abstract evaluate method which accepts a String expression
--RevPolishCalc implements Calculator to perform arithmatic functions such as x / + and - on PostFix String expressions and return a float
+GUI: 
+-Gui is now connected to the Calcualtor model
+-You can toggle between postfix and infix at the touch of a button (not yet fully implemented)
+-You can switch between the text view and GUI view at the tough of a button (not yet fully implemented)
+-You can now get the answers to the calculations within the textbox
+-You can call the previous answer from memory at the touch of a button
+-rotation gimmick has stopped
+-you now recieve a error message if the expression is invalid
+
+Launcher class introduced:
+-Allows project to be packaged into a single runnable jar file
+
+CalcModel:
+-Now has a linked list acting as memory to store and retrive previous answers from
+
+MyView Controlelr class:
+-updated to communicate data with CalcModel, can now send and recive data
+
+
 
 
