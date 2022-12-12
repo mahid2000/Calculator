@@ -50,11 +50,25 @@ public class OpStack {
   }
 
   /**
-   * Method to check if Numeric Stack is empty.
+   * Method to check if OpStack is empty.
    *
-   * @return True if NumSatck is empty or False if it has a size larger than 0
+   * @return True if OpSatck is empty or False if it has a size larger than 0
    */
   public final boolean isEmpty() {
     return this.opStack.size() <= 0;
   }
+  
+  
+  /**
+   * Method to get Symbol at top of OpStack without popping.
+   *
+   * @return Symbol at top of OpStack
+   */
+  public final Symbol top() {
+    if (opStack.size() <= 0) {
+      throw new EmptyStackException();
+    }
+    return opStack.top().getSymbol();
+  }
+  
 }
