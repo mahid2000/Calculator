@@ -54,5 +54,17 @@ public class StrStack {
   public final boolean isEmpty() {
     return this.strStack.size() <= 0;
   }
+  
+  /**
+   * Method to get String at the top of StrStack without removing it.
+   *
+   * @return String at top of StrStack
+   */
+  public String top() {
+    if (strStack.size() <= 0) {
+      throw new EmptyStackException();
+    }
+    return strStack.top().getString();
+  }
 
 }

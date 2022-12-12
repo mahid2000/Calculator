@@ -62,4 +62,13 @@ class StrStackTest {
     assertEquals(tested.isEmpty(), true, "Popping all Entrys should empty the StrStack");
   }
 
+  // Test 5: Test to see if top() gets String at the top of StrStack without removing it
+  @Test
+  void testTop() {
+    tested.push("Hello");
+    assertEquals(tested.top(), "Hello", "top() should get the String at the top of StrStack");
+    assertEquals(tested.isEmpty(), false,
+        "top() should not remove the String from StrStack therefore isEmpty() should return false");
+  }
+
 }
