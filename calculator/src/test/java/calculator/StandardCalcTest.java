@@ -34,7 +34,18 @@ class StandardCalcTest {
         "the String '0' should not throw a InvalidExpressionException");
   }
 
+  // Test 3: Test to see if evaluate() can evaluate a random Integer String
+  @Test
+  void testRandInt() throws InvalidExpressionException {
+    final String temp = String.valueOf(random.nextInt());
 
+    // assertDoesNotThrow was pointed out to me by a colleague Isacc during time spent in the lab
+    // (Surname Unknown)
+    assertDoesNotThrow(() -> {
+      assertEquals(tester.evaluate(temp), Float.valueOf(temp),
+          " the String temp of a randomly generated integer should return itself as a float");
+    });
+  }
 
 
 
