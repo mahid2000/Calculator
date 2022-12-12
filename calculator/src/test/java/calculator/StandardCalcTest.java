@@ -80,6 +80,23 @@ class StandardCalcTest {
         "when * is detected, pop last two entrys on numstack find the product and push back on");
   }
 
+  /*
+   * Test 7: Test to see if evaluate can perform division and throws an InvalidExpressionException
+   * when divisor is 0
+   */
+  @Test
+  void testDivide() throws InvalidExpressionException {
+    float f1 = random.nextFloat();
+    final float f2 = random.nextFloat();
+    final float reasult = f1 / f2;
+    final String revPol = f1 + " " + "/" + " " + f2;
+    assertEquals(tester.evaluate(revPol), reasult,
+        "when / is detected, pop last two entrys on numstack find the quotient and push back on");
+    assertThrows(InvalidExpressionException.class, () -> tester.evaluate("4 0 /"),
+        "you should not be able to divide by 0");
+  }
+
+
 
 
 
