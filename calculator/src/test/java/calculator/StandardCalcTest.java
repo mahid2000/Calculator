@@ -27,6 +27,13 @@ class StandardCalcTest {
         "the calculator should throw a InvalidExpressionException if the expression is null");
   }
 
+  // Test 2: Test to see if evaluate() can evaluate the String "0"
+  @Test
+  void testZero() throws InvalidExpressionException {
+    assertEquals(tester.evaluate("0"), 0.00,
+        "the String '0' should not throw a InvalidExpressionException");
+  }
+
 
 
 
