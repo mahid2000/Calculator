@@ -11,6 +11,7 @@ import java.util.LinkedList;
 public class CalcModel {
 
   final Calculator revPolCalc;
+  final Calculator standardCalc;
   final LinkedList<Float> memory;
 
   /**
@@ -19,6 +20,7 @@ public class CalcModel {
    */
   public CalcModel() {
     revPolCalc = new RevPolishCalc();
+    standardCalc = new StandardCalc();
     memory = new LinkedList<Float>();
   }
 
@@ -33,8 +35,12 @@ public class CalcModel {
   public final float calculate(final String calculation, final boolean isInfix) {
     if (isInfix) {
       // TO-DO: implement function to turn postfix notation to infix
-      System.out.print("not yet implemented...");
-      return Float.NaN;
+      try {
+        memory.add(standardCalc.evaluate(calculation));
+        return standardCalc.evaluate(calculation);
+      } catch (InvalidExpressionException e) {
+        e.printStackTrace();
+      }
     }
     // Try evaluate the postfix expression by passing the calculation String to RevPolishCalc
     try {
@@ -43,10 +49,9 @@ public class CalcModel {
       // Return the answer
       return revPolCalc.evaluate(calculation);
     } catch (InvalidExpressionException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    // TO-DO: return helpful error message here
+    System.out.print("Calcualtion could not be completed...");
     return Float.NaN;
   }
   
