@@ -61,6 +61,12 @@ class OpStackTest {
     assertEquals(tested.isEmpty(), true,
         "Popping all Entrys should empty the OpStack");
   }
-
-
+  
+  // Test 5: Test to see if top() gets the Symbol at the top of OpStack without removing it
+  @Test
+  void testTop() {
+    tested.push(Symbol.TIMES);
+    assertEquals(tested.top(), Symbol.TIMES, "Top should return the Symbol at the top of OpStack");
+    assertEquals(tested.isEmpty(), false, "Top should not remove the Symbol from the OpStack");
+  }
 }
