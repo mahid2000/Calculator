@@ -96,6 +96,15 @@ class StandardCalcTest {
         "you should not be able to divide by 0");
   }
 
+  // Test 8: Test to see if evaluate() will work on expressions with brackets
+  @Test
+  void testBrackets() throws InvalidExpressionException {
+    assertEquals(tester.evaluate("( 1 + 2 ) "), 3.0f);
+    assertEquals(tester.evaluate("( 1 + 2 ) - 2 "), 1.0f);
+    assertEquals(tester.evaluate("( 1 + 2 ) * 2 / ( 1 + 1 ) "), 3.0f);
+  }
+
+
 
 
 
