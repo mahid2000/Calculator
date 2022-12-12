@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class StandardCalcTest {
 
-  private Calculator tester;
+  private StandardCalc tester;
   private Random random = new Random();
 
   @BeforeEach
@@ -47,7 +47,17 @@ class StandardCalcTest {
     });
   }
 
-  // Test 4: Test to see if evaluate() can perform addition
+  // Test 4: Test to see if in2post() can turn a infix String into a postfix String
+  @Test
+  void testIn2Post() {
+    assertEquals(tester.in2post(" ( 1 + 1 ) "), "1 1 +", "Postfix of ( 1 + 1 )  should be 1 1 +");
+    assertEquals(tester.in2post(" ( 2 + 3 ) / 5 "), "2 3 + 5 /",
+        "Postfix of (2 + 3 ) / 5  should be 2 3 + 5 /");
+    assertEquals(tester.in2post(" ( ( 1 + 1 ) * 5 ) - 2 "), "1 1 + 5 * 2 -",
+        "Postfix of ( ( 1 + 1 ) * 5 ) - 2 should be 1 1 + 5 * 2 -");
+  }
+
+  // Test 5: Test to see if evaluate() can perform addition
   @Test
   void testAdd() throws InvalidExpressionException {
     float f1 = random.nextFloat();
@@ -58,7 +68,7 @@ class StandardCalcTest {
         "when + is detected, pop last two entrys on numstack, add them and then push them back on");
   }
 
-  // Test 5: Test to see if evaluate() can perform subtraction
+  // Test 6: Test to see if evaluate() can perform subtraction
   @Test
   void testSubtract() throws InvalidExpressionException {
     float f1 = random.nextFloat();
@@ -69,7 +79,7 @@ class StandardCalcTest {
         "when - is detected, pop last two entrys on numstack find the difference and push back on");
   }
 
-  // Test 6: Test to see if evaluate can perform multiplication
+  // Test 7: Test to see if evaluate can perform multiplication
   @Test
   void testMultiply() throws InvalidExpressionException {
     float f1 = random.nextFloat();
@@ -81,7 +91,7 @@ class StandardCalcTest {
   }
 
   /*
-   * Test 7: Test to see if evaluate can perform division and throws an InvalidExpressionException
+   * Test 8: Test to see if evaluate can perform division and throws an InvalidExpressionException
    * when divisor is 0
    */
   @Test
@@ -96,7 +106,7 @@ class StandardCalcTest {
         "you should not be able to divide by 0");
   }
 
-  // Test 8: Test to see if evaluate() will work on expressions with brackets
+  // Test 9: Test to see if evaluate() will work on expressions with brackets
   @Test
   void testBrackets() throws InvalidExpressionException {
     assertEquals(tester.evaluate("( 1 + 2 ) "), 3.0f);
@@ -105,7 +115,7 @@ class StandardCalcTest {
   }
 
 
-  // Test 9: Test to see if evaluate() will work on a simple exponent expressions
+  // Test 10: Test to see if evaluate() will work on a simple exponent expressions
 
   @Test
   public final void simpleExp() throws InvalidExpressionException {
