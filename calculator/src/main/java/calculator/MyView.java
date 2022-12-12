@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
@@ -48,16 +47,10 @@ public class MyView {
   private Button modeText;
 
   @FXML
-  private Button reverseButton;
-
-  @FXML
-  private MenuItem viewAll;
-
-  @FXML
-  private MenuItem viewPrevious;
-
-  @FXML
   private ToggleButton togglePostFix;
+
+  @FXML
+  private Label helper;
 
 
   /**
@@ -93,8 +86,8 @@ public class MyView {
   /**
    * Method to switch between infix and postfix when button is toggled.
    *
-   * @param event  button pressed
-   * @return boolean isInfix 
+   * @param event button pressed
+   * @return boolean isInfix
    */
   @FXML
   public boolean isToggled(ActionEvent event) {
@@ -121,31 +114,23 @@ public class MyView {
     Float ans = casio.calculate(msg, isInfix);
     // if a not a number float is returned then return error message
     if (ans.equals(Float.NaN)) {
-      message.setText("Invalid Expression Exception!!!");
+      message.setText("Invalid Expression Exception!!! ");
+      helper.setText(
+          "Some Tips:\n"
+          + "Remember to put spaces inbetween !!!\n"
+          + "Infix has brackets but postfix does not...\n"
+          + "The expression must have 2 floats for every one opperator ");
       return;
     }
-    message.setText(msg + " equals");
+    message.setText(msg + " equals ");
     inputBox.setText(ans.toString());
   }
-  
-  
+
+
   @FXML
   void prevAns(ActionEvent event) {
     Float ans = casio.prevAnswer();
     inputBox.appendText(ans.toString());
   }
-
-
-  //
-  // @FXML
-  // void revsersePress(ActionEvent event) {
-  // double r = label.getRotate();
-  // label.setRotate(r - 90);
-  // String msg = inputBox.getText();
-  // message.setText(new StringBuilder(msg).reverse().toString());
-  // }
-  //
-
-
 
 }
