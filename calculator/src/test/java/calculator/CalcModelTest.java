@@ -28,6 +28,14 @@ class CalcModelTest {
         "If boolean inFix is flase the String calcualtion should pass to RevPolishCalc.evaluate()");
   }
 
+  // Test 3: Test to see if CalcModel can call RevPolishCalc to calculate the expression
+  @Test
+  void testCalcStandard() {
+    assertEquals(tester.calculate("1 + 1", true), 2.0f,
+        "If boolean inFix is truee the String calcualtion should pass to StandardCalc.evaluate()");
+  }
+
+
 
 
 }
