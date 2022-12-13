@@ -34,7 +34,6 @@ public class CalcModel {
    */
   public final float calculate(final String calculation, final boolean isInfix) {
     if (isInfix) {
-      // TO-DO: implement function to turn postfix notation to infix
       try {
         memory.add(standardCalc.evaluate(calculation));
         return standardCalc.evaluate(calculation);
