@@ -25,14 +25,14 @@ class CalcModelTest {
   @Test
   void testCalcRevPol() {
     assertEquals(tester.calculate("1 1 +", false), 2.0f,
-        "If boolean inFix is flase the String calcualtion should pass to RevPolishCalc.evaluate()");
+        "If boolean inFix is false the String calcualtion should pass to RevPolishCalc.evaluate()");
   }
 
   // Test 3: Test to see if CalcModel can call RevPolishCalc to calculate the expression
   @Test
   void testCalcStandard() {
     assertEquals(tester.calculate("1 + 1", true), 2.0f,
-        "If boolean inFix is truee the String calcualtion should pass to StandardCalc.evaluate()");
+        "If boolean inFix is true the String calcualtion should pass to StandardCalc.evaluate()");
   }
 
   // Test 4: Test to see if CalcModel.prevAnswer can retrieve previous answer from memory

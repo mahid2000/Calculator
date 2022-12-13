@@ -113,12 +113,13 @@ public class MyView {
     // call calculator to evaluate input
     Float ans = casio.calculate(msg, isInfix);
     // if a not a number float is returned then return error message
-    if (ans.equals(Float.NaN)) {
+    if (Float.isNaN(ans)) {
       message.setText("Invalid Expression Exception!!! ");
       helper.setText(
           "Some Tips:\n"
           + "Remember to put spaces inbetween !!!\n"
           + "Infix has brackets but postfix does not...\n"
+          + "Postfix has both operaters before operation\n"
           + "The expression must have 2 floats for every one opperator ");
       return;
     }

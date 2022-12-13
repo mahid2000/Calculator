@@ -1,6 +1,6 @@
-This is the first Beta release and the 3rd release overall!!!
+This is the seccond Beta release and the 4th release overall!!!
 
-Reverse Polish Calculations can now be performed :)
+Infix and Postfix Calculations can now be performed :)
 
 GUI: 
 -Gui is now connected to the Calcualtor model
@@ -10,16 +10,38 @@ GUI:
 -You can call the previous answer from memory at the touch of a button
 -rotation gimmick has stopped
 -you now recieve a error message if the expression is invalid
+-Gui has been cleaned up and is more user friendly
+-helpful messages have been introducted when an error occurs (need to test more thoroughly)
+-System Tested to a acceptable degree
 
 Launcher class introduced:
 -Allows project to be packaged into a single runnable jar file
+-can now build v0.0.1-Snapshot-with-dependencies.jar as a runnable file
 
 CalcModel:
 -Now has a linked list acting as memory to store and retrive previous answers from
+-Now has full access to both StandardCalc and RevPolishCalc
+-Returns helpful tips if InvalidExpressionException occurs
 
-MyView Controlelr class:
+
+MyView Controlelr classs:
 -updated to communicate data with CalcModel, can now send and recive data
+-helpful tips feature added
+
+StandardCalc:
+-Now fully functional, has function in2post which turns infix strings into postfix and then evaluates it
+-Precedence function added to check operater precedence
+-feature not a bug.... it can evaluate both postfix and infix strings
+
+RevPolishCalc:
+-can now evaluate postfix expressions
+-Throws InvalidExpressionException if expression is not valid
+-Fixed EmptyStack bug by checking if stack was empty before attempting to pop from it 
 
 
 
+The Calcualtor has been integerated and tested thuroughly and is in a somewhat deliverable state.
+Feel free to providde feedback on the application and Enijoy :)
 
+@Author Mahid with Inspiration from Vijay Sinha https://java2blog.com/infix-to-postfix-java/
+and Dave Cohen
