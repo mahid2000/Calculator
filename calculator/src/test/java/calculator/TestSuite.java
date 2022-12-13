@@ -6,7 +6,9 @@ import org.junit.runners.Suite;
 
 
 /**
- * @author Mahid
+ * Suite of Test Classes.
+ *
+ * @author Mahid inspired by Dave Cohen
  *
  */
 @RunWith(Suite.class)
