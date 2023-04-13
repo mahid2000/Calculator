@@ -1,5 +1,8 @@
-# CS2800
+# CS2800 Calcualtor
 
-This repository has been created to store your CS2800 work.
+A Caclulator that can perform Post-Fix and In-Fix calculations.
 
-You may edit it as you like, but please do not remove the default topics or the project members list. These need to stay as currently defined in order for your lecturer to be able to find and mark your work.
+Junit Tests were used throughout development and Checkstyle was conformed to Googles standard.
+
+For the requirements of the porject and the UML diagram please view handoutCalc.pdf
+
